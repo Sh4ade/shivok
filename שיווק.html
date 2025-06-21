@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlucoWatch - הדור הבא של ניטור הסוכר</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #43978D, #2A4849);
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #222E50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+         .section-subtitle {
+            font-size: 1.25rem;
+            color: #2A4849;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="brand-gradient text-white text-center p-12 shadow-lg">
+        <h1 class="text-5xl font-bold mb-2">GlucoWatch</h1>
+        <p class="text-2xl font-light">השליטה בידיים שלך - בלי כאב, בלי דקירה.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="problem" class="my-16">
+            <h2 class="section-title">הבעיה: הכאב והטרחה שבניטור סוכר</h2>
+            <p class="section-subtitle">רוב מוחלט של הסוכרתיים בישראל עדיין מסתמכים על שיטות ניטור פולשניות, כואבות ולא נוחות. המציאות הזו פוגעת באיכות החיים ומקשה על מעקב רציף ויעיל.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card md:col-span-2">
+                    <h3 class="text-xl font-semibold text-[#2A4849] mb-4">שיטות ניטור הסוכר בישראל</h3>
+                     <p class="text-gray-600 mb-4">תרשים זה ממחיש את הפער העצום בשוק. הרוב המכריע משתמש בשיטה מיושנת, מה שמדגיש את הצורך הדחוף בפתרון חדשני כמו GlucoWatch.</p>
+                    <div class="chart-container">
+                        <canvas id="marketShareChart"></canvas>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col justify-center items-center">
+                    <div class="text-6xl font-bold text-[#222E50]">800,000</div>
+                    <div class="text-xl text-gray-600 mt-2">סוכרתיים וטרום-סוכרתיים בישראל</div>
+                    <p class="mt-4 text-gray-600">שוק עצום עם צורך אמיתי בשיפור איכות החיים.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="my-16">
+            <h2 class="section-title">הפתרון: GlucoWatch - בריאות נראית אחרת</h2>
+            <p class="section-subtitle">GlucoWatch הוא שעון חכם המודד סוכר ללא דקירה, באמצעות טכנולוגיה אופטית מתקדמת. הוא משלב דיוק רפואי עם עיצוב מודרני וחווית משתמש נוחה.</p>
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-2xl font-bold text-center text-[#2A4849] mb-6">איך זה עובד?</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl mb-2">💡</div>
+                        <h4 class="font-bold">1. הקרנת אור</h4>
+                        <p class="text-sm text-gray-600">חיישנים מקרינים אור עדין על העור</p>
+                    </div>
+                    <div class="text-2xl text-[#A4C3B2] hidden md:block">&rarr;</div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl mb-2">🖐️</div>
+                        <h4 class="font-bold">2. אינטראקציה</h4>
+                        <p class="text-sm text-gray-600">האור חודר לשכבה העליונה של העור</p>
+                    </div>
+                     <div class="text-2xl text-[#A4C3B2] hidden md:block">&rarr;</div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl mb-2">🔬</div>
+                        <h4 class="font-bold">3. ניתוח חכם</h4>
+                        <p class="text-sm text-gray-600">המערכת מנתחת את האור המוחזר</p>
+                    </div>
+                     <div class="text-2xl text-[#A4C3B2] hidden md:block">&rarr;</div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl mb-2">📱</div>
+                        <h4 class="font-bold">4. מידע בזמן אמת</h4>
+                        <p class="text-sm text-gray-600">הנתונים מוצגים באפליקציה נוחה</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="swot" class="my-16">
+            <h2 class="section-title">ניתוח אסטרטגי: SWOT</h2>
+            <p class="section-subtitle">הבנת הסביבה הפנימית והחיצונית היא המפתח להצלחה. ניתוח ה-SWOT ממפה את נקודות החוזק, החולשה, ההזדמנויות והאיומים של GlucoWatch.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+                <div class="bg-[#43978D] p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-3">S - חוזקות</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>טכנולוגיה פורצת דרך ללא כאבים</li>
+                        <li>חווית משתמש נוחה ודיסקרטית</li>
+                        <li>ניטור רציף ואוטומטי</li>
+                        <li>אפליקציה מתקדמת עם שיתוף נתונים</li>
+                    </ul>
+                </div>
+                <div class="bg-red-400 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-3">W - חולשות</h3>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>מותג חדש הדורש בניית אמון</li>
+                        <li>עלות ייצור ראשונית גבוהה</li>
+                        <li>תלות באישורים רגולטוריים</li>
+                    </ul>
+                </div>
+                <div class="bg-green-500 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-3">O - הזדמנויות</h3>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>גידול עולמי במספר חולי הסוכרת</li>
+                        <li>מגמת מעבר למכשור בריאותי חכם</li>
+                        <li>שיתופי פעולה עם גופים רפואיים</li>
+                        <li>פיתוח גרסאות מותאמות (ילדים, ספורטאים)</li>
+                    </ul>
+                </div>
+                <div class="bg-yellow-500 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-3">T - איומים</h3>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>תחרות מצד מותגים ותיקים וחזקים</li>
+                        <li>סקפטיות צרכנים כלפי טכנולוגיה חדשה</li>
+                        <li>רגולציה משתנה העלולה לעכב חדירה</li>
+                        <li>כניסת מתחרים עם טכנולוגיה דומה</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy" class="my-16">
+             <h2 class="section-title">אסטרטגיית 4 המ"מים (4Ps)</h2>
+             <p class="section-subtitle">אסטרטגיית החדירה לשוק מבוססת על תמהיל שיווקי מדויק, המדגיש את הערך הייחודי של המוצר בכל אחד מארבעת הממדים המרכזיים.</p>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="stat-card">
+                    <div class="text-3xl mb-3">📦</div>
+                    <h3 class="text-xl font-bold text-[#222E50]">מוצר (Product)</h3>
+                    <p class="text-gray-600 mt-2">שעון חכם, אופנתי ודיסקרטי הממותג כפתרון לאורח חיים בריא, ולא רק כמכשיר רפואי.</p>
+                </div>
+                 <div class="stat-card">
+                    <div class="text-3xl mb-3">💲</div>
+                    <h3 class="text-xl font-bold text-[#222E50]">מחיר (Price)</h3>
+                    <p class="text-gray-600 mt-2">תמחור פרימיום מבוסס ערך (1,290 ₪) המשקף את החדשנות, הנוחות והחיסכון לטווח ארוך.</p>
+                </div>
+                 <div class="stat-card">
+                    <div class="text-3xl mb-3">🏪</div>
+                    <h3 class="text-xl font-bold text-[#222E50]">מקום (Place)</h3>
+                    <p class="text-gray-600 mt-2">הפצה סלקטיבית ומבוקרת בשלב הראשון (רופאים, קופ"ח), והתרחבות לרשתות פארם ואונליין בשלב השני.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl mb-3">📣</div>
+                    <h3 class="text-xl font-bold text-[#222E50]">קידום (Promotion)</h3>
+                    <p class="text-gray-600 mt-2">קמפיין דיגיטלי ממוקד, שיתופי פעולה עם משפיענים וגופים רפואיים, ומסר מרכזי של "שליטה בלי כאב".</p>
+                </div>
+             </div>
+        </section>
+        
+        <section id="projections" class="my-16">
+            <h2 class="section-title">תחזית צמיחה לשלוש שנים</h2>
+            <p class="section-subtitle">יעדי החדירה לשוק הישראלי מבוססים על צמיחה הדרגתית, בניית אמון והתרחבות עקבית. התחזית מציגה את יעדי המכירות וההכנסות הצפויות.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-center text-[#2A4849] mb-4">תחזית מכירות (יחידות)</h3>
+                    <p class="text-gray-600 text-center mb-4">צפי לגידול משמעותי במכירות משנה לשנה, עם התבססות המותג והתרחבות ערוצי ההפצה.</p>
+                    <div class="chart-container">
+                        <canvas id="salesProjectionChart"></canvas>
+                    </div>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-center text-[#2A4849] mb-4">תחזית הכנסות (מיליוני ש"ח)</h3>
+                    <p class="text-gray-600 text-center mb-4">הגידול במכירות יתורגם לעלייה חדה בהכנסות, המבוססת על מודל תמחור הפרימיום.</p>
+                    <div class="chart-container">
+                        <canvas id="revenueProjectionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-[#222E50] text-white text-center p-6 mt-16">
+        <p>&copy; 2025 GlucoWatch. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).length > maxLength) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine += (currentLine ? ' ' : '') + word;
+                    }
+                });
+                lines.push(currentLine);
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+            
+            const sharedChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                family: "'Assistant', sans-serif",
+                                size: 14,
+                            },
+                            color: '#222E50',
+                        },
+                    },
+                    tooltip: {
+                        titleFont: { family: "'Assistant', sans-serif" },
+                        bodyFont: { family: "'Assistant', sans-serif" },
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                     y: {
+                        ticks: {
+                           color: '#2A4849',
+                            font: {
+                                family: "'Assistant', sans-serif",
+                            },
+                        },
+                         grid: {
+                            color: '#eaecee'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                           color: '#2A4849',
+                            font: {
+                                family: "'Assistant', sans-serif",
+                            },
+                        },
+                         grid: {
+                            display: false
+                        }
+                    }
+                }
+            };
+            
+            const marketShareCtx = document.getElementById('marketShareChart');
+            if(marketShareCtx) {
+                new Chart(marketShareCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['דקירה ידנית', 'חיישנים תת-עוריים', 'אחר/ללא מעקב'],
+                        datasets: [{
+                            label: 'נתח שוק',
+                            data: [70, 20, 10],
+                            backgroundColor: ['#FF5768', '#A4C3B2', '#EAECEE'],
+                            borderColor: ['#ffffff'],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                         plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: { family: "'Assistant', sans-serif", size: 14 },
+                                    color: '#222E50'
+                                }
+                            },
+                             tooltip: {
+                                titleFont: { family: "'Assistant', sans-serif" },
+                                bodyFont: { family: "'Assistant', sans-serif" },
+                                callbacks: {
+                                   title: tooltipTitleCallback
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const salesProjectionCtx = document.getElementById('salesProjectionChart');
+            if(salesProjectionCtx) {
+                new Chart(salesProjectionCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['שנה 1', 'שנה 2', 'שנה 3'],
+                        datasets: [{
+                            label: 'מכירות (אלפי יחידות)',
+                            data: [6, 22.5, 70],
+                            fill: true,
+                            borderColor: '#43978D',
+                            backgroundColor: 'rgba(67, 151, 141, 0.1)',
+                            tension: 0.1,
+                            pointBackgroundColor: '#222E50',
+                            pointRadius: 5
+                        }]
+                    },
+                    options: sharedChartOptions
+                });
+            }
+
+            const revenueProjectionCtx = document.getElementById('revenueProjectionChart');
+            if(revenueProjectionCtx) {
+                new Chart(revenueProjectionCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['שנה 1', 'שנה 2', 'שנה 3'],
+                        datasets: [{
+                            label: 'הכנסות (מיליוני ש"ח)',
+                            data: [6.45, 25.8, 77.4],
+                            backgroundColor: ['#A4C3B2', '#43978D', '#2A4849'],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: { ...sharedChartOptions, scales: { ...sharedChartOptions.scales, x: {...sharedChartOptions.scales.x, grid: {display: false} } } }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
